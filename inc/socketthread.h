@@ -80,6 +80,7 @@ signals:
     void log_to_ui(QString log);
     void ip_to_ui(QByteArray array);
     void progress_to_ui(int value);
+    void led_to_ui(QList<Led_info> list);
 
 public slots:
 };

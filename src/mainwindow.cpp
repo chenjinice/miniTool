@@ -6,9 +6,9 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QTimer>
+#include <QLabel>
 #include "inc/mainwindow.h"
 #include "ui_mainwindow.h"
-#include "inc/protocol.h"
 #include "inc/socketthread.h"
 
 static QString s_red = "background-color: rgb(255,0,0);";
@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->m_sockthread,&SocketThread::log_to_ui,this,&MainWindow::show_msg);
     connect(this->m_sockthread,&SocketThread::ip_to_ui,this,&MainWindow::ip_geted);
     connect(this->m_sockthread,&SocketThread::progress_to_ui,this,&MainWindow::progress_geted);
+    connect(this->m_sockthread,&SocketThread::led_to_ui,this,&MainWindow::led_geted);
 
     connect(this->m_timer,&QTimer::timeout,this,&MainWindow::timeout_func);
 }
@@ -63,6 +64,19 @@ void MainWindow::init_all()
     ui->ip->setText("127.0.0.1");
 //    ui->ip->setText("172.200.10.128");
     ui->port->setText("8899");
+
+    m_leds.append(ui->e1);
+    m_leds.append(ui->e2);
+    m_leds.append(ui->e3);
+    m_leds.append(ui->w1);
+    m_leds.append(ui->w2);
+    m_leds.append(ui->w3);
+    m_leds.append(ui->s1);
+    m_leds.append(ui->s2);
+    m_leds.append(ui->s3);
+    m_leds.append(ui->n1);
+    m_leds.append(ui->n2);
+    m_leds.append(ui->n3);
 }
 
 void MainWindow::openSocket()
@@ -260,7 +274,7 @@ void MainWindow::checkBox_clicked()
 {
     if( ui->checkBox->isChecked() ){
         int value = ui->spinBox->value() * 1000;
-        m_timer->start(value);
+        if( !m_timer->isActive() ) m_timer->start(value);
     }
 }
 
@@ -315,6 +329,34 @@ void MainWindow::ip_geted(QByteArray array)
     ui->version_label->setText(version);
     ui->time_label->setText(time);
     ui->program_label->setText(program);
+}
+
+void MainWindow::led_geted(QList<Led_info> list)
+{
+    for(int i=0;i<m_leds.length();i++)m_leds[i]->setStyleSheet(s_black);
+
+//    qDebug() << "length = " << list.length();
+    for(int i=0;i<list.length();i++)
+    {
+        int index = list[i].direction*3+list[i].position-1;
+        QString time = QString::number(list[i].time);
+        QString color = s_black;
+        switch (list[i].color) {
+        case 'r':
+            color = s_red;
+            break;
+        case 'g':
+            color = s_green;
+            break;
+        case 'y':
+            color = s_yellow;
+            break;
+        }
+        if( index < m_leds.length() ){
+            m_leds[index]->setText(time);
+            m_leds[index]->setStyleSheet(color);
+        }
+    }
 }
 
 void MainWindow::show_msg(QString log)

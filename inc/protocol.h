@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 #include <QString>
-
+#include <QList>
 
 #define MSG_IPDATA_SIZE 18
 #define MSG_VERSION_SIZE 8
@@ -20,6 +20,13 @@ typedef enum{
     PROTOCOL_FAIL,
     PROTOCOL_ERROR
 }Protocol_err;
+
+typedef struct{
+    uint8_t direction;
+    uint8_t position;
+    uint8_t color;
+    uint8_t time;
+}Led_info;
 
 uint8_t check_sum(uint8_t *p, int length);
 bool    ip_to_array(const char *str, int *array);
@@ -39,11 +46,10 @@ int protocol_endUpdate(uint8_t *p);
 Protocol_err protocol_check_setip(uint8_t *p ,int length);
 Protocol_err protocol_check_getip(uint8_t *p , int length, int *index);
 Protocol_err protocol_check_reboot(uint8_t *p ,int length);
-Protocol_err protocol_check_lightStatus(uint8_t *p ,int length);
 Protocol_err protocol_check_update(uint8_t *p , int length);
 Protocol_err protocol_check_preUpdate(uint8_t *p ,int length);
 Protocol_err protocol_check_endUpdate(uint8_t *p ,int length);
-
+QList<Led_info> protocol_check_lightStatus(uint8_t *p ,int length);
 
 
 #endif // PROTOCOL_H

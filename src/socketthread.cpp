@@ -4,12 +4,12 @@
 #include <QMutex>
 #include <QFileInfo>
 #include <QApplication>
+#include <QMetaType>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <synchapi.h>
 #include "inc/socketthread.h"
-#include "inc/protocol.h"
 
 SocketThread::SocketThread(QObject *parent) : QObject(parent)
 {
@@ -20,6 +20,8 @@ SocketThread::SocketThread(QObject *parent) : QObject(parent)
 
     this->moveToThread(m_thread);
     connect(m_thread,&QThread::started,this,&SocketThread::startThread);
+
+    qRegisterMetaType<QList<Led_info>>("QList<Led_info>");
 }
 
 SocketThread::~SocketThread()
@@ -231,6 +233,7 @@ bool SocketThread::get_light(Event_Info &info)
     this->show_log(tr("【获取红绿灯信息】 ======>"));
     Protocol_err ret_protocal = PROTOCOL_ERROR;
     uint8_t p[20] = {0};
+    QList<Led_info> list;
 
     int length = protocol_lightStatus(p);
     this->show_cmd(p,length);
@@ -240,11 +243,13 @@ bool SocketThread::get_light(Event_Info &info)
     if(ret){
         QByteArray array = m_socket->readAll();
         uint8_t *read_buffer = reinterpret_cast<uint8_t*>(array.data());
-        ret_protocal = protocol_check_lightStatus(read_buffer,array.count());
+        list = protocol_check_lightStatus(read_buffer,array.count());
+        if(list.length() > 0)ret_protocal = PROTOCOL_OK;
         this->show_return(read_buffer,array.count(),ret_protocal);
     }else {
         this->show_log(tr("等待 %1 毫秒，无反馈").arg(info.timeout));
     }
+    emit led_to_ui(list);
     if(ret_protocal)return true;
     else return false;
 }
@@ -319,7 +324,7 @@ void SocketThread::startThread()
         Event_Info info = m_list.at(0);
         bool read_ready = m_socket->waitForReadyRead(200);
         if(read_ready){
-            qDebug() << " :::: " << m_socket->readAll();
+            m_socket->readAll();
         }
         switch (info.type)
         {

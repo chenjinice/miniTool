@@ -563,7 +563,7 @@
      <string>s</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_24">
+   <widget class="QLabel" name="s1">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -585,7 +585,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="n2">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -607,7 +607,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_18">
+   <widget class="QLabel" name="w2">
     <property name="geometry">
      <rect>
       <x>790</x>
@@ -642,7 +642,7 @@
      <string>东</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_13">
+   <widget class="QLabel" name="e3">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -664,7 +664,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_21">
+   <widget class="QLabel" name="s3">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -686,7 +686,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_17">
+   <widget class="QLabel" name="w3">
     <property name="geometry">
      <rect>
       <x>840</x>
@@ -734,7 +734,7 @@
      <string>西</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_20">
+   <widget class="QLabel" name="w1">
     <property name="geometry">
      <rect>
       <x>740</x>
@@ -769,7 +769,7 @@
      <string>北</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_12">
+   <widget class="QLabel" name="n3">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -791,7 +791,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_16">
+   <widget class="QLabel" name="e1">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -813,7 +813,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_22">
+   <widget class="QLabel" name="s2">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -848,7 +848,7 @@
      <string>重复</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="n1">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -870,7 +870,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_14">
+   <widget class="QLabel" name="e2">
     <property name="geometry">
      <rect>
       <x>450</x>

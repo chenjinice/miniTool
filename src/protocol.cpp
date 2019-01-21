@@ -332,16 +332,17 @@ Protocol_err protocol_check_reboot(uint8_t *p, int length)
     return PROTOCOL_ERROR;
 }
 
-Protocol_err protocol_check_lightStatus(uint8_t *p, int length)
+QList<Led_info> protocol_check_lightStatus(uint8_t *p, int length)
 {
     uint8_t sum = 0;
     int count = 0;
-    Protocol_err p_ret = PROTOCOL_ERROR;
-    if(p == nullptr)return PROTOCOL_ERROR;
-    if(length < MSG_LED_RSIZE)return PROTOCOL_ERROR;
+    QList<Led_info> list;
+    if(p == nullptr)return list;
+    if(length < MSG_LED_RSIZE)return list;
 
     for(int i=0;i<=length-MSG_LED_RSIZE;i++)
     {
+        int index = 0;
         count = i;
         if(p[count++] != MSG_HEAD1)continue;
         if(p[count++] != MSG_HEAD2)continue;
@@ -350,18 +351,22 @@ Protocol_err protocol_check_lightStatus(uint8_t *p, int length)
         if(p[count++] != 0x00)continue;
 
         if(p[count++] != MSG_LEDVALID_RSIZE)continue;
-        count += 9;
-        if(p[count++] == 1)p_ret = PROTOCOL_OK;
-        else p_ret = PROTOCOL_FAIL;
+        index = count;
+        count += MSG_LEDVALID_RSIZE;
 
         sum= check_sum(p+i,count-i);
-        if(p[count++] != sum)continue;
+        if(p[count++] != sum);
         if(p[count++] != MSG_TAIL1)continue;
         if(p[count++] != MSG_TAIL2)continue;
 
-        return p_ret;
+        Led_info led;
+        led.direction = p[index++];
+        led.position = p[index++];
+        led.color = p[index++];
+        led.time = p[index];
+        list.append(led);
     }
-    return PROTOCOL_ERROR;
+    return list;
 }
 
 Protocol_err protocol_check_update(uint8_t *p, int length)
