@@ -338,9 +338,9 @@ Protocol_err protocol_check_lightStatus(uint8_t *p, int length)
     int count = 0;
     Protocol_err p_ret = PROTOCOL_ERROR;
     if(p == nullptr)return PROTOCOL_ERROR;
-    if(length < MSG_LIGHT_RSIZE)return PROTOCOL_ERROR;
+    if(length < MSG_LED_RSIZE)return PROTOCOL_ERROR;
 
-    for(int i=0;i<=length-MSG_LIGHT_RSIZE;i++)
+    for(int i=0;i<=length-MSG_LED_RSIZE;i++)
     {
         count = i;
         if(p[count++] != MSG_HEAD1)continue;
@@ -349,7 +349,8 @@ Protocol_err protocol_check_lightStatus(uint8_t *p, int length)
         if(p[count++] != 0xa0)continue;
         if(p[count++] != 0x00)continue;
 
-        if(p[count++] != 9)continue;
+        if(p[count++] != MSG_LEDVALID_RSIZE)continue;
+        count += 9;
         if(p[count++] == 1)p_ret = PROTOCOL_OK;
         else p_ret = PROTOCOL_FAIL;
 

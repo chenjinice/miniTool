@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QFileInfo>
+#include <QTimer>
 #include "inc/mainwindow.h"
 #include "ui_mainwindow.h"
 #include "inc/protocol.h"
@@ -22,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->setWindowTitle("学习板升级程序工具-V1.1");
+    this->setWindowTitle("学习板升级程序工具-V1.2");
 
     this->init_all();
 
@@ -31,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->setip_button,&QPushButton::clicked,this,&MainWindow::setip_clicked);
     connect(ui->reboot_button,&QPushButton::clicked,this,&MainWindow::reboot_clicked);
     connect(ui->update_button,&QPushButton::clicked,this,&MainWindow::update_clicked);
-    connect(ui->lightState_button,&QPushButton::clicked,this,&MainWindow::lightStatus_clicked);
+    connect(ui->checkBox,&QPushButton::clicked,this,&MainWindow::checkBox_clicked);
     connect(ui->selectfile_button,&QPushButton::clicked,this,&MainWindow::selectFile_clicked);
     connect(ui->preUpdate_utton,&QPushButton::clicked,this,&MainWindow::preUpdate_clicked);
     connect(ui->clear_button,&QPushButton::clicked,this,&MainWindow::clear_clicked);
@@ -41,6 +42,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->m_sockthread,&SocketThread::log_to_ui,this,&MainWindow::show_msg);
     connect(this->m_sockthread,&SocketThread::ip_to_ui,this,&MainWindow::ip_geted);
     connect(this->m_sockthread,&SocketThread::progress_to_ui,this,&MainWindow::progress_geted);
+
+    connect(this->m_timer,&QTimer::timeout,this,&MainWindow::timeout_func);
 }
 
 MainWindow::~MainWindow()
@@ -53,11 +56,12 @@ void MainWindow::init_all()
 {
     m_is_connected = false;
     m_sockthread = new SocketThread;
+    m_timer = new QTimer(this);
 
     this->setButtonsStatus(false);
 
     ui->ip->setText("127.0.0.1");
-    ui->ip->setText("172.200.10.128");
+//    ui->ip->setText("172.200.10.128");
     ui->port->setText("8899");
 }
 
@@ -97,7 +101,7 @@ void MainWindow::setButtonsStatus(bool flag)
     ui->setip_button->setEnabled(flag);
     ui->update_button->setEnabled(flag);
     ui->reboot_button->setEnabled(flag);
-    ui->lightState_button->setEnabled(flag);
+    ui->checkBox->setEnabled(flag);
     ui->preUpdate_utton->setEnabled(flag);
 }
 
@@ -182,15 +186,6 @@ void MainWindow::reboot_clicked()
     m_sockthread->addEvent(info);
 }
 
-void MainWindow::lightStatus_clicked()
-{
-    if(!m_is_connected)return;
-    Event_Info info;
-    info.type = S_LIGHT;
-    info.timeout = 3000;
-    m_sockthread->addEvent(info);
-}
-
 void MainWindow::selectFile_clicked()
 {
     QString filename = QFileDialog::getOpenFileName(this,tr("选择bin文件"),"./","*");
@@ -259,6 +254,25 @@ void MainWindow::preUpdate_clicked()
 void MainWindow::clear_clicked()
 {
     ui->rdata_textEdit->clear();
+}
+
+void MainWindow::checkBox_clicked()
+{
+    if( ui->checkBox->isChecked() ){
+        int value = ui->spinBox->value() * 1000;
+        m_timer->start(value);
+    }
+}
+
+void MainWindow::timeout_func()
+{
+    if( !m_is_connected )return;
+    if( !ui->checkBox->isChecked() )return;
+
+    Event_Info info;
+    info.type = S_LIGHT;
+    info.timeout = 3000;
+    m_sockthread->addEvent(info);
 }
 
 void MainWindow::progress_geted(int value)

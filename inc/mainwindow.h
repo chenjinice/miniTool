@@ -11,6 +11,7 @@ class MainWindow;
 }
 
 class SocketThread;
+class QTimer;
 
 class MainWindow : public QMainWindow
 {
@@ -27,6 +28,7 @@ private:
 
     bool            m_is_connected;
     SocketThread    *m_sockthread;
+    QTimer          *m_timer;
 
     void init_all();
     void openSocket();
@@ -38,10 +40,11 @@ private:
     void setip_clicked();
     void update_clicked();
     void reboot_clicked();
-    void lightStatus_clicked();
     void selectFile_clicked();
     void preUpdate_clicked();
     void clear_clicked();
+    void checkBox_clicked();
+    void timeout_func();
 
     void progress_geted(int value);
     void ip_geted(QByteArray array);

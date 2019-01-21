@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>933</width>
+    <width>1088</width>
     <height>738</height>
    </rect>
   </property>
@@ -14,25 +14,12 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="open_button">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>70</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>打开</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>110</y>
-      <width>191</width>
+      <width>261</width>
       <height>201</height>
      </rect>
     </property>
@@ -55,10 +42,10 @@
     <widget class="QLabel" name="ip_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>20</y>
-       <width>111</width>
-       <height>16</height>
+       <width>161</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -81,10 +68,10 @@
     <widget class="QLabel" name="mask_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>40</y>
-       <width>111</width>
-       <height>16</height>
+       <width>161</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -94,9 +81,9 @@
     <widget class="QLabel" name="gateway_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>60</y>
-       <width>111</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -109,7 +96,7 @@
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>51</width>
+       <width>71</width>
        <height>21</height>
       </rect>
      </property>
@@ -133,10 +120,10 @@
     <widget class="QLabel" name="mac_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>80</y>
-       <width>111</width>
-       <height>20</height>
+       <width>161</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -146,7 +133,7 @@
     <widget class="QPushButton" name="getip_button">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>80</x>
        <y>170</y>
        <width>81</width>
        <height>23</height>
@@ -159,9 +146,9 @@
     <widget class="QLabel" name="version_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>100</y>
-       <width>111</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -198,9 +185,9 @@
     <widget class="QLabel" name="time_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>120</y>
-       <width>111</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -213,7 +200,7 @@
       <rect>
        <x>10</x>
        <y>140</y>
-       <width>51</width>
+       <width>71</width>
        <height>21</height>
       </rect>
      </property>
@@ -224,9 +211,9 @@
     <widget class="QLabel" name="program_label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>140</y>
-       <width>111</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -239,9 +226,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>340</y>
-      <width>191</width>
-      <height>141</height>
+      <y>320</y>
+      <width>261</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="title">
@@ -264,7 +251,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
+       <y>50</y>
        <width>31</width>
        <height>16</height>
       </rect>
@@ -277,8 +264,8 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>60</y>
-       <width>51</width>
+       <y>80</y>
+       <width>61</width>
        <height>21</height>
       </rect>
      </property>
@@ -290,7 +277,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>80</y>
+       <y>110</y>
        <width>51</width>
        <height>21</height>
       </rect>
@@ -302,8 +289,8 @@
     <widget class="QPushButton" name="setip_button">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>110</y>
+       <x>80</x>
+       <y>140</y>
        <width>81</width>
        <height>23</height>
       </rect>
@@ -315,9 +302,9 @@
     <widget class="QLineEdit" name="ip_lineEdit">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>80</x>
        <y>20</y>
-       <width>113</width>
+       <width>171</width>
        <height>20</height>
       </rect>
      </property>
@@ -325,9 +312,9 @@
     <widget class="QLineEdit" name="mask_lineEdit">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>40</y>
-       <width>113</width>
+       <x>80</x>
+       <y>50</y>
+       <width>171</width>
        <height>20</height>
       </rect>
      </property>
@@ -335,41 +322,34 @@
     <widget class="QLineEdit" name="gateway_lineEdit">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>60</y>
-       <width>113</width>
+       <x>80</x>
+       <y>80</y>
+       <width>171</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
     <widget class="QLineEdit" name="mac_lineEdit">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>80</y>
-       <width>113</width>
+       <x>80</x>
+       <y>110</y>
+       <width>171</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="lightState_button">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>20</y>
-      <width>131</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>获取红绿灯状态</string>
-    </property>
    </widget>
    <widget class="QPushButton" name="reboot_button">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>90</x>
       <y>650</y>
       <width>81</width>
       <height>23</height>
@@ -384,7 +364,7 @@
      <rect>
       <x>10</x>
       <y>510</y>
-      <width>191</width>
+      <width>261</width>
       <height>131</height>
      </rect>
     </property>
@@ -396,7 +376,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>171</width>
+       <width>241</width>
        <height>20</height>
       </rect>
      </property>
@@ -404,7 +384,7 @@
     <widget class="QPushButton" name="selectfile_button">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>180</x>
        <y>40</y>
        <width>71</width>
        <height>23</height>
@@ -417,7 +397,7 @@
     <widget class="QPushButton" name="update_button">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>150</x>
        <y>100</y>
        <width>61</width>
        <height>23</height>
@@ -432,7 +412,7 @@
       <rect>
        <x>10</x>
        <y>70</y>
-       <width>171</width>
+       <width>241</width>
        <height>20</height>
       </rect>
      </property>
@@ -445,7 +425,7 @@
       <rect>
        <x>10</x>
        <y>100</y>
-       <width>61</width>
+       <width>71</width>
        <height>23</height>
       </rect>
      </property>
@@ -457,10 +437,10 @@
    <widget class="QPlainTextEdit" name="rdata_textEdit">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>230</y>
-      <width>681</width>
-      <height>411</height>
+      <x>300</x>
+      <y>120</y>
+      <width>761</width>
+      <height>521</height>
      </rect>
     </property>
     <property name="readOnly">
@@ -473,329 +453,13 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>70</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>北</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>70</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>←255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>70</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>↑255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>70</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>→255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>130</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>→255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_14">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>130</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>↑255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_15">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>130</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>东</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_16">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>130</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>←255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_17">
-    <property name="geometry">
-     <rect>
-      <x>750</x>
-      <y>130</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>→255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_18">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>130</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>↑255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_19">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>130</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>西</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_20">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>130</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>←255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_21">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>190</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>→255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_22">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>190</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>↑255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_23">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>190</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>南</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_24">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>190</y>
-      <width>41</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>←255</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>40</y>
       <width>141</width>
-      <height>22</height>
+      <height>23</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -821,7 +485,7 @@
       <x>10</x>
       <y>10</y>
       <width>171</width>
-      <height>22</height>
+      <height>23</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -863,7 +527,7 @@
    <widget class="QPushButton" name="clear_button">
     <property name="geometry">
      <rect>
-      <x>830</x>
+      <x>990</x>
       <y>650</y>
       <width>75</width>
       <height>23</height>
@@ -873,13 +537,387 @@
      <string>清空</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="open_button">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>70</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>打开</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_28">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>50</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_24">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>80</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>20</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>50</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>50</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>东</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>50</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>80</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_17">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>50</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_23">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>80</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>南</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>50</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>西</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>50</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>20</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>北</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>20</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>50</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_22">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>80</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>50</y>
+      <width>51</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>重复</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>20</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>50</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>50</y>
+      <width>71</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>933</width>
+     <width>1088</width>
      <height>23</height>
     </rect>
    </property>

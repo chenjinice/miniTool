@@ -12,7 +12,8 @@
 #define MSG_UPDATE_RSIZE    12
 #define MSG_IPVALID_RSIZE   32
 #define MSG_IP_RSIZE        MSG_IPVALID_RSIZE+9
-#define MSG_LIGHT_RSIZE     20
+#define MSG_LEDVALID_RSIZE  9
+#define MSG_LED_RSIZE       9+9
 
 typedef enum{
     PROTOCOL_OK,
