@@ -36,6 +36,7 @@ private:
     void socketConnected();
     void socketDisconnected();
     void setButtonsStatus(bool flag);
+    void clearLeds();
 
     void getip_clicked();
     void setip_clicked();

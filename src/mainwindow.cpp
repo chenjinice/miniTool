@@ -62,7 +62,7 @@ void MainWindow::init_all()
     this->setButtonsStatus(false);
 
     ui->ip->setText("127.0.0.1");
-//    ui->ip->setText("172.200.10.128");
+    ui->ip->setText("172.200.10.128");
     ui->port->setText("8899");
 
     m_leds.append(ui->e1);
@@ -98,6 +98,7 @@ void MainWindow::socketConnected()
     ui->progressBar->setValue(0);
 
     this->setButtonsStatus(true);
+    this->clearLeds();
 }
 
 void MainWindow::socketDisconnected()
@@ -117,6 +118,11 @@ void MainWindow::setButtonsStatus(bool flag)
     ui->reboot_button->setEnabled(flag);
     ui->checkBox->setEnabled(flag);
     ui->preUpdate_utton->setEnabled(flag);
+}
+
+void MainWindow::clearLeds()
+{
+    for(int i=0;i<m_leds.length();i++)m_leds[i]->setStyleSheet(s_black);
 }
 
 void MainWindow::getip_clicked()
@@ -333,28 +339,30 @@ void MainWindow::ip_geted(QByteArray array)
 
 void MainWindow::led_geted(QList<Led_info> list)
 {
-    for(int i=0;i<m_leds.length();i++)m_leds[i]->setStyleSheet(s_black);
+    this->clearLeds();
 
 //    qDebug() << "length = " << list.length();
     for(int i=0;i<list.length();i++)
     {
-        int index = list[i].direction*3+list[i].position-1;
+        int index = protocol_direct(list[i]);
         QString time = QString::number(list[i].time);
         QString color = s_black;
         switch (list[i].color) {
-        case 'r':
+        case 'R':
             color = s_red;
             break;
-        case 'g':
+        case 'G':
             color = s_green;
             break;
-        case 'y':
+        case 'Y':
             color = s_yellow;
             break;
         }
-        if( index < m_leds.length() ){
+        if( (index >= 0) && (index < m_leds.length()) ){
             m_leds[index]->setText(time);
             m_leds[index]->setStyleSheet(color);
+        }else {
+            this->show_msg("方向数据有误");
         }
     }
 }

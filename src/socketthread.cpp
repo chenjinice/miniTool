@@ -5,6 +5,7 @@
 #include <QFileInfo>
 #include <QApplication>
 #include <QMetaType>
+#include <QDateTime>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -250,6 +251,7 @@ bool SocketThread::get_light(Event_Info &info)
         this->show_log(tr("等待 %1 毫秒，无反馈").arg(info.timeout));
     }
     emit led_to_ui(list);
+    this->save_log(list,ret);
     if(ret_protocal)return true;
     else return false;
 }
@@ -420,10 +422,59 @@ void SocketThread::show_return(uint8_t *p,int length,Protocol_err err)
     case PROTOCOL_OK:
         log += tr("结果 = 成功");
         break;
-    default:
-        log += " ??";
-        break;
     }
     emit log_to_ui(log);
+}
+
+void SocketThread::save_log(QList<Led_info> &list, bool flag)
+{
+    QString path = "log/" + QDateTime::currentDateTime().toString("yyyyMMdd")+".log";
+    QFile file(path);
+    QString log ;
+
+    bool ret = file.open(QIODevice::Append);
+    if(!ret){
+        this->show_log(tr("log文件打开失败：%1").arg(path));
+        return;
+    }
+
+    log += QDateTime::currentDateTime().toString("[yyyyMMdd hh:mm:ss]=");
+
+    if(flag)
+    {
+        if(list.count() > 0)
+        {
+            for(int i=0;i<list.count();i++){
+                QString direct = protocol_direct_String(list[i]);
+                if(direct.length() == 0){
+                    log += "方向数据有误，";
+                    continue;
+                }
+                QString color;
+                switch (list[i].color) {
+                case 'R':
+                    color = "红";
+                    break;
+                case 'G':
+                    color = "绿";
+                    break;
+                case 'Y':
+                    color = "黄";
+                    break;
+                default:
+                    color = "?";
+                }
+                log += QString("%1%2%3").arg(direct).arg(color).arg(list[i].time);
+                if( i < list.count()-1 )log += "，";
+            }
+        }else {
+            log += "有反馈，无法解析";
+        }
+    }else {
+        log += "无反馈";
+    }
+    log += "\r\n";
+    file.write(log.toUtf8());
+    file.close();
 }
 

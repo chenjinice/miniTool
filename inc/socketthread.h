@@ -74,6 +74,8 @@ private:
     void show_cmd(uint8_t *p,int length);
     void show_return(uint8_t *p,int length,Protocol_err err);
 
+    void save_log(QList<Led_info> &list,bool flag);
+
 signals:
     void connected();
     void disconnected();

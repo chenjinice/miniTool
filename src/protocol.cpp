@@ -350,12 +350,13 @@ QList<Led_info> protocol_check_lightStatus(uint8_t *p, int length)
         if(p[count++] != 0xa0)continue;
         if(p[count++] != 0x00)continue;
 
-        if(p[count++] != MSG_LEDVALID_RSIZE)continue;
+        //板子里边写错了数字，不方便动，只能我这边改一下
+        if(p[count++] != MSG_LED_RSIZE)continue;
         index = count;
         count += MSG_LEDVALID_RSIZE;
 
         sum= check_sum(p+i,count-i);
-        if(p[count++] != sum);
+        if(p[count++] != sum)continue;
         if(p[count++] != MSG_TAIL1)continue;
         if(p[count++] != MSG_TAIL2)continue;
 
@@ -478,6 +479,35 @@ uint8_t file_pack_num(int length)
     if(remainder != 0)count++;
 
     return  static_cast<uint8_t>(count);
+}
+
+
+int protocol_direct(Led_info &info)
+{
+    int m = 0 , n = 0 , ret = -1;
+
+    if(info.direction < 4)m = info.direction;
+    else return ret;
+
+    if(info.position < 4)n = info.position;
+    else return ret;
+
+    ret = m*3 + n -1;
+    if(ret >= 12)ret = -1;
+
+    return  ret;
+}
+
+QString protocol_direct_String(Led_info &info)
+{
+    static QStringList s_list = {"东←","东↑","东→","西←","西↑","西→""南←","南↑","南→","北←","北↑","北→"};
+    int length = s_list.length();
+    QString str;
+    int ret = protocol_direct(info);
+
+    if( (ret >= 0) && (ret < length) )str = s_list[ret];
+
+    return  str;
 }
 
 

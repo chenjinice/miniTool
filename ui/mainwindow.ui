@@ -384,7 +384,7 @@
     <widget class="QPushButton" name="selectfile_button">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>80</x>
        <y>40</y>
        <width>71</width>
        <height>23</height>

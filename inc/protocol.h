@@ -52,4 +52,7 @@ Protocol_err protocol_check_endUpdate(uint8_t *p ,int length);
 QList<Led_info> protocol_check_lightStatus(uint8_t *p ,int length);
 
 
+int protocol_direct(Led_info &info);
+QString protocol_direct_String(Led_info &info);
+
 #endif // PROTOCOL_H
