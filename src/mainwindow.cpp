@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->setWindowTitle("学习板升级程序工具-V1.5");
+    this->setWindowTitle("学习板升级工具-V1.6");
 
     this->init_all();
 

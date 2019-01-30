@@ -6,6 +6,7 @@
 #include <QApplication>
 #include <QMetaType>
 #include <QDateTime>
+#include <QDir>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -428,7 +429,11 @@ void SocketThread::show_return(uint8_t *p,int length,Protocol_err err)
 
 void SocketThread::save_log(QList<Led_info> &list, bool flag)
 {
-    QString path = "log/" + QDateTime::currentDateTime().toString("yyyyMMdd")+".log";
+    QString dirct = "log";
+    QDir dir;
+    if(!dir.exists(dirct))dir.mkdir(dirct);
+
+    QString path = dirct + "/" + QDateTime::currentDateTime().toString("yyyyMMdd")+".log";
     QFile file(path);
     QString log ;
 
