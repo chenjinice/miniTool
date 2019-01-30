@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "inc/socketthread.h"
 
-#define MAX_DIAPLAY_SIZE    1024*1024
+#define MAX_DIAPLAY_SIZE    (1024*1024*10)
 
 namespace Ui {
 class MainWindow;

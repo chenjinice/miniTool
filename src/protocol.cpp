@@ -120,17 +120,19 @@ int protocol_setip(uint8_t *p, uint8_t *ip_data)
 int protocol_lightStatus(uint8_t *p)
 {
     int count = 0;
-    uint8_t sum = 0;
+//    uint8_t sum = 0;
     if(p == nullptr)return count;
-    p[count++] = MSG_HEAD1;
-    p[count++] = MSG_HEAD2;
-    p[count++] = 0x83;
-    p[count++] = 0xa0;
-    p[count++] = 0x00;
-    sum= check_sum(p,count);
-    p[count++] = sum;
-    p[count++] = MSG_TAIL1;
-    p[count++] = MSG_TAIL2;
+//    p[count++] = MSG_HEAD1;
+//    p[count++] = MSG_HEAD2;
+//    p[count++] = 0x83;
+//    p[count++] = 0xa0;
+//    p[count++] = 0x00;
+//    sum= check_sum(p,count);
+//    p[count++] = sum;
+//    p[count++] = MSG_TAIL1;
+//    p[count++] = MSG_TAIL2;
+
+    p[count++] = 0xaa;
     return count;
 }
 

@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->setWindowTitle("学习板升级程序工具-V1.2");
+    this->setWindowTitle("学习板升级程序工具-V1.5");
 
     this->init_all();
 
@@ -32,10 +32,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->setip_button,&QPushButton::clicked,this,&MainWindow::setip_clicked);
     connect(ui->reboot_button,&QPushButton::clicked,this,&MainWindow::reboot_clicked);
     connect(ui->update_button,&QPushButton::clicked,this,&MainWindow::update_clicked);
-    connect(ui->checkBox,&QPushButton::clicked,this,&MainWindow::checkBox_clicked);
+    connect(ui->checkBox,&QPushButton::toggled,this,&MainWindow::checkBox_clicked);
     connect(ui->selectfile_button,&QPushButton::clicked,this,&MainWindow::selectFile_clicked);
     connect(ui->preUpdate_utton,&QPushButton::clicked,this,&MainWindow::preUpdate_clicked);
     connect(ui->clear_button,&QPushButton::clicked,this,&MainWindow::clear_clicked);
+    connect(ui->lightClear_button,&QPushButton::clicked,this,&MainWindow::clearLeds);
 
     connect(this->m_sockthread,&SocketThread::connected,this,&MainWindow::socketConnected);
     connect(this->m_sockthread,&SocketThread::disconnected,this,&MainWindow::socketDisconnected);
@@ -118,6 +119,7 @@ void MainWindow::setButtonsStatus(bool flag)
     ui->reboot_button->setEnabled(flag);
     ui->checkBox->setEnabled(flag);
     ui->preUpdate_utton->setEnabled(flag);
+    ui->checkBox->setChecked(false);
 }
 
 void MainWindow::clearLeds()
@@ -279,8 +281,10 @@ void MainWindow::clear_clicked()
 void MainWindow::checkBox_clicked()
 {
     if( ui->checkBox->isChecked() ){
-        int value = ui->spinBox->value() * 1000;
+        int value = ui->spinBox->value();
         if( !m_timer->isActive() ) m_timer->start(value);
+    }else {
+        m_timer->stop();
     }
 }
 
@@ -339,7 +343,7 @@ void MainWindow::ip_geted(QByteArray array)
 
 void MainWindow::led_geted(QList<Led_info> list)
 {
-    this->clearLeds();
+//    this->clearLeds();
 
 //    qDebug() << "length = " << list.length();
     for(int i=0;i<list.length();i++)
