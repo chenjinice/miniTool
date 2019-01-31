@@ -405,7 +405,6 @@ Protocol_err protocol_check_update(uint8_t *p, int length)
         if(p[count++] != MSG_TAIL1)continue;
         if(p[count++] != MSG_TAIL2)continue;
 
-        p_ret = PROTOCOL_OK;
         return p_ret;
     }
     return PROTOCOL_ERROR;
