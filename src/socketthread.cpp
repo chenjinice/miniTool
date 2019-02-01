@@ -200,9 +200,9 @@ bool SocketThread::update(Event_Info &info)
         uint8_t p[MSG_FBODY_SIZE+20] = {0};
         int send_size = 0;
         int length = protocol_update(p,bin,bin_size,page,&send_size);
-//        this->show_cmd(p,length);
         m_socket->write(reinterpret_cast<char *>(p),length);
         this->show_log(tr("【%1/%2】号包发送第【%3】次,【%4】字节").arg(page+1).arg(pack_count).arg(repeat+1).arg(send_size));
+//        this->show_cmd(p,length);
         bool read_ret = m_socket->waitForReadyRead(info.timeout);
 
         if(read_ret){

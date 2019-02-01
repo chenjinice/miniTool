@@ -7,7 +7,7 @@
 
 #define MSG_IPDATA_SIZE 18
 #define MSG_VERSION_SIZE 8
-#define MSG_FBODY_SIZE  1200
+#define MSG_FBODY_SIZE  512
 #define MSG_RSIZE           10
 #define MSG_UPDATE_RSIZE    12
 #define MSG_IPVALID_RSIZE   32
