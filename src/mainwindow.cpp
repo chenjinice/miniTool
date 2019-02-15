@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->setWindowTitle("学习板升级工具-V1.6");
+    this->setWindowTitle("学习板升级工具-V1.190215");
 
     this->init_all();
 
@@ -326,6 +326,8 @@ void MainWindow::ip_geted(QByteArray array)
     }else {
          program = QString::asprintf("%d",arr[28]);
     }
+    uint16_t reset_count = static_cast<uint16_t>(arr[30] | (arr[31] << 8));
+    program += "  (" + QString::number(reset_count) + ")";
 
 //    qDebug() <<array<< ip << mask;
     ui->ip_label->setText(ip);
